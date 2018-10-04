@@ -6,9 +6,9 @@ Complex-valued ~~neural~~ linear networks.
 
 The main topology, a *k* and I layers with location-independent (variable-density) kernels with several "time-segments" is able to produce artifact-free images where standard advanced (e.g. compressed sensing, etc.) reconstruction fails.
 
-Example on a Multi-band spiral trajectory with incoherent CAIPI blips:
+Example on a Multi-band spiral trajectory with incoherent CAIPI blips, compared vs. BART with an augmented signal model with B0 inhomogeneities correction:
 
-![Example output](srez_sample_output.png)
+![BARTMLN_MB](BARTMLN_MB.png)
 
 Vs. common methods on our benchmark data:
 
