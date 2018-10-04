@@ -34,7 +34,7 @@ The "CUDA_VISIBLE_DEVICES" is set at the beginning of `srez_main1.py` . The code
 The dataset used for the real data and benchmark test is a collection of randomly chosen slices from the HCP. It can be downloaded from https://figshare.com/s/4e700474da52534efb30 . The data is augmented with random cropping, flipping and 90deg rotation, and a random 2D phase is added. The following parameters deternine the strength of the added phase: 
 
 For the real data, the acquired signal, the trajectory, MIRT-based NUFFT coefficients and time-segments data are included here.
-For the benchmark test, the poisson-disc masks and the images used are provided, as well as the resulted recons.
+For the benchmark test, the poisson-disc masks and the images used are provided, as well as the reconstructed images using various mathods.
 
 # Training and running the model
 
