@@ -42,7 +42,7 @@ For the benchmark test, the poisson-disc masks and the images used are provided,
 
 # Training and running the model
 
-Training can be done by calling `python ~/HomeA/TF/srez/srez_main1.py`
+Training can be done by calling `python srez_main1.py`
 
 If *ShowRealData*=1, the output every *summary_period* will include a run on the data in *RealDataFN*.
 
