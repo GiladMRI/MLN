@@ -19,7 +19,7 @@ Vs. common methods on our benchmark data:
 ![Vs. common methods on our benchmark data:](Benchmark.png)
 
 ## TF-NUFFT
-NUFFT with b0 field inhomogeneities correction by the time-segments method is implemented in tensorflow to run on the GPU.
+NUFFT with B0 field inhomogeneities correction by the time-segments method is implemented in tensorflow to run on the GPU.
 
 # Parameters
 
