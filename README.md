@@ -1,30 +1,34 @@
 # MLN
 
-Minimal Linear Networks for MR image reconstructiom
+Material for: Minimal Linear Networks for MR image reconstructiom
+
+Complex-valued ~~neural~~ linear networks.
+
+The main topology, a *k* and I layers with location-independent (variable-density) kernels with several "time-segments" is able to produce artifact-free images where standard advanced (e.g. compressed sensing, etc.) reconstruction fails.
+
+Example on a Multi-band spiral trajectory with ncoherent CAIPI blips:
+![Example output](srez_sample_output.png)
+
+Vs. common methods on our benchmark data:
 
 ![Example output](srez_sample_output.png)
 
-As you can see, the network is able to produce a very plausible reconstruction of the original face. As the dataset is mainly composed of well-illuminated faces looking straight ahead, the reconstruction is poorer when the face is at an angle, poorly illuminated, or partially occluded by eyeglasses or hands.
+# Parameters
 
-This particular example was produced after training the network for 3 hours on a GTX 1080 GPU, equivalent to 130,000 batches or about 10 epochs.
-
-# How it works
-
-In essence the architecture is a DCGAN where the input to the generator network is the 16x16 image rather than a multinomial gaussian distribution.
-
-In addition to that the loss function of the generator has a term that measures the L1 difference between the 16x16 input and downscaled version of the image produced by the generator.
-
-The adversarial term of the loss function ensures the generator produces plausible faces, while the L1 term ensures that those faces resemble the low-res input data. We have found that this L1 term greatly accelerates the convergence of the network during the first batches and also appears to prevent the generator from getting stuck in a poor local solution.
-
-Finally, the generator network relies on ResNet modules as we've found them to train substantially faster than more old-fashioned architectures. The adversarial network is much simpler as the use of ResNet modules did not provide an advantage during our experimentation.
+The system is highly configurable from the human-readable params.txt . Most parameters are rather self-explanatory. Otherwise, some additional information can be found here: https://docs.google.com/document/d/18lZOREQs4aX6HWqjV1Dn5tCwnAgcu9XmiUsXeqp5uRQ/edit?usp=sharing
 
 # Requirements
 
-You will need Python 3 with Tensorflow, numpy, scipy and [moviepy](http://zulko.github.io/moviepy/). See `requirements.txt` for details.
+The code is based on https://github.com/david-gpu/srez, so in case of errors it might be useful to verify srez is working.
+
+You will need Python 3 with Tensorflow, numpy, scipy, h5py and [moviepy](http://zulko.github.io/moviepy/).
+See srez -`requirements.txt` for details.
 
 ## Dataset
+The dataset used for the real data and benchmark test is random collection of slices from the HCP. It can be downloaded from https://figshare.com/s/4e700474da52534efb30 .
 
-After you have the required software above you will also need the `Large-scale CelebFaces Attributes (CelebA) Dataset`. The model expects the `Align&Cropped Images` version. Extract all images to a subfolder named `dataset`. I.e. `srez/dataset/lotsoffiles.jpg`.
+For the real data, the acquired signal, the trajectory, MIRT-based NUFFT coefficients and time-segments data are included here.
+For the benchmark test, the data is included here.
 
 # Training the model
 
