@@ -25,7 +25,7 @@ You will need Python 3 with Tensorflow, numpy, scipy, h5py and [moviepy](http://
 See srez -`requirements.txt` for details.
 
 ## Dataset
-The dataset used for the real data and benchmark test is random collection of slices from the HCP. It can be downloaded from https://figshare.com/s/4e700474da52534efb30 .
+The dataset used for the real data and benchmark test is a collection of randomly chosen slices from the HCP. It can be downloaded from https://figshare.com/s/4e700474da52534efb30 . The data is augmented with random cropping, flipping and 90deg rotation, and a random 2D phase is added. The following parameters deternine the strength of the added phase: 
 
 For the real data, the acquired signal, the trajectory, MIRT-based NUFFT coefficients and time-segments data are included here.
 For the benchmark test, the poisson-disc masks and the images used are provided, as well as the resulted recons.
@@ -33,6 +33,7 @@ For the benchmark test, the poisson-disc masks and the images used are provided,
 # Training and running the model
 
 Training can be done by calling ''
+
 Running on a series of files, given in the format Path/Prefix_XX.mat, can be done my setting the following parameters in params.txt:
 LoadAndRunOnData,LoadAndRunOnData_checkpointP,LoadAndRunOnData_Prefix
 LoadAndRunOnData_OutP 
