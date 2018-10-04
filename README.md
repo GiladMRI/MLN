@@ -10,6 +10,8 @@ Example on a Multi-band spiral trajectory with incoherent CAIPI blips:
 
 ![Example output](srez_sample_output.png)
 
+Vs. common methods on our benchmark data:
+
 ![Vs. common methods on our benchmark data:](Benchmark.png)
 
 ## TF-NUFFT
