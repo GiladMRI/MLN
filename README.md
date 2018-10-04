@@ -28,10 +28,11 @@ See srez -`requirements.txt` for details.
 The dataset used for the real data and benchmark test is random collection of slices from the HCP. It can be downloaded from https://figshare.com/s/4e700474da52534efb30 .
 
 For the real data, the acquired signal, the trajectory, MIRT-based NUFFT coefficients and time-segments data are included here.
-For the benchmark test, the data is included here.
+For the benchmark test, the poisson-disc masks and the images used are provided, as well as the resulted recons.
 
-# Training the model
+# Training and running the model
 
-Training with default settings: `python3 srez_main.py --run train`. The script will periodically output an example batch in PNG format onto the `srez/train` folder, and checkpoint data will be stored in the `srez/checkpoint` folder.
-
-After the network has trained you can also produce an animation showing the evolution of the output by running `python3 srez_main.py --run demo`.
+Training can be done by calling ''
+Running on a series of files, given in the format Path/Prefix_XX.mat, can be done my setting the following parameters in params.txt:
+LoadAndRunOnData,LoadAndRunOnData_checkpointP,LoadAndRunOnData_Prefix
+LoadAndRunOnData_OutP 
