@@ -6,7 +6,8 @@ Complex-valued ~~neural~~ linear networks.
 
 The main topology, a *k* and I layers with location-independent (variable-density) kernels with several "time-segments" is able to produce artifact-free images where standard advanced (e.g. compressed sensing, etc.) reconstruction fails.
 
-Example on a Multi-band spiral trajectory with ncoherent CAIPI blips:
+Example on a Multi-band spiral trajectory with incoherent CAIPI blips:
+
 ![Example output](srez_sample_output.png)
 
 Vs. common methods on our benchmark data:
@@ -15,7 +16,7 @@ Vs. common methods on our benchmark data:
 
 # Parameters
 
-The system is highly configurable from the human-readable params.txt . Most parameters are rather self-explanatory. Otherwise, some additional information can be found here: https://docs.google.com/document/d/18lZOREQs4aX6HWqjV1Dn5tCwnAgcu9XmiUsXeqp5uRQ/edit?usp=sharing
+The system is highly configurable from the human-readable 'params.txt' . Most parameters are rather self-explanatory; some additional information can be found here: https://docs.google.com/document/d/18lZOREQs4aX6HWqjV1Dn5tCwnAgcu9XmiUsXeqp5uRQ/edit?usp=sharing
 
 # Requirements
 
@@ -34,6 +35,6 @@ For the benchmark test, the poisson-disc masks and the images used are provided,
 
 Training can be done by calling ''
 
-Running on a series of files, given in the format Path/Prefix_XX.mat, can be done my setting the following parameters in params.txt:
-LoadAndRunOnData,LoadAndRunOnData_checkpointP,LoadAndRunOnData_Prefix
+Running a trained network on a series of .mat files, given in the format Path/Prefix_XX.mat, can be done my setting the following parameters in params.txt:
+LoadAndRunOnData=1,LoadAndRunOnData_checkpointP,LoadAndRunOnData_Prefix
 LoadAndRunOnData_OutP 
