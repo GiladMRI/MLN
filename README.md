@@ -50,3 +50,4 @@ LoadAndRunOnData_OutP - see example in current `params.txt`
 
 # Calling from MATLAB
 `RunTFForMatlab.sh` should be edited with the correct folders, CUDA, etc.
+similarly, the .m scripts have some folder definitions that need to be adjusted. 
