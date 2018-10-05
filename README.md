@@ -8,7 +8,7 @@ Example on a spiral trajectory, compared vs. ESPIRiT with an augmented signal mo
 
 ![Fig5_ReconsOnRealData-01](Fig5_ReconsOnRealData-01.png)
 
-The difference is emphasised in the case of a multi-band spiral trajectory with with incoherent CAIPI blips, vs. BART with augmented signal model:
+The difference is more pronounced in the case of a multi-band spiral trajectory with with incoherent CAIPI blips, vs. BART with augmented signal model:
 
 ![BARTMLN_MB](BARTMLN_MB.png)
 
