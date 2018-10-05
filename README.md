@@ -40,13 +40,13 @@ For the benchmark test, the poisson-disc masks and the images used are provided,
 
 # Training and running the model
 
-Training can be done by calling `python srez_main1.py`
+Training can be done by calling `python srez_main1.py`. The dataset used is set by the parameter `DatasetMatFN` in `params.txt`.
 
 If *ShowRealData*=1, the output every *summary_period* (minutes) will include a run on the data in *RealDataFN*.
 
-Running a trained network on a series of .mat files, given in the format Path/Prefix_XX.mat, can be done my setting the following parameters in params.txt:
+Running a trained network on a series of .mat files, given in the format Path/Prefix_XX.mat, can be done my setting the following parameters in `params.txt`:
 LoadAndRunOnData=1,LoadAndRunOnData_checkpointP,LoadAndRunOnData_Prefix
-LoadAndRunOnData_OutP - see example in current `params.txt`
+LoadAndRunOnData_OutP, HowManyToRun - see example in current `params_ex.txt`
 
 # Calling from MATLAB
 `RunTFForMatlab.sh` should be edited with the correct folders, CUDA, etc.
