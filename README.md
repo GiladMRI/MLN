@@ -40,14 +40,14 @@ The dataset used for the real data and benchmark test is a collection of randoml
 For the real data, the acquired signal, the trajectory, MIRT-based NUFFT coefficients and time-segments data are included here.
 For the benchmark test, the poisson-disc masks and the images used are provided, as well as the reconstructed images using various methods.
 
-## On real data
+## Downloading trained netork - real data
 The download may take a moment. ~560MB
 ```
 wget -O ./RealData/RegridTry3C2_7TS_S01_Sli06.tar.xz https://ndownloader.figshare.com/files/13198547?private_link=61f25dc380af32a12da3
 tar xf RealData/RegridTry3C2_7TS_S01_Sli06.tar.xz -C RealData
 ```
 
-## On benchmark
+## Downloading trained netork - benchmark
 The download may take several minutes. ~ 4.3GB
 ```
 wget -O P2DF.tar.xz https://ndownloader.figshare.com/files/13198568?private_link=65c0e9f77f23c664aabe
