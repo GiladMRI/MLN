@@ -747,7 +747,8 @@ def train_model(train_data):
 
             for r in range(1,81):
                 ifilenamePrefix=myParams.myDict['LoadAndRunOnData_Prefix']
-                ifilename=ifilenamePrefix +  f'{r:02}' + '.mat'
+                # ifilename=ifilenamePrefix +  f'{r:02}' + '.mat'
+                ifilename=ifilenamePrefix +  r + '.mat'
                 RealData=scipy.io.loadmat(ifilename)
                 RealData=RealData['Data']
                 
@@ -776,7 +777,8 @@ def train_model(train_data):
 
                 OnRealData={}
                 OnRealDataM=gene_RealOutput
-                filenamex = 'OnRealData' + f'{r:02}' + '.mat'
+                # filenamex = 'OnRealData' + f'{r:02}' + '.mat'
+                filenamex = 'OnRealData' + r + '.mat'
                 
                 LoadAndRunOnData_OutP=myParams.myDict['LoadAndRunOnData_OutP']
                 filename = os.path.join(LoadAndRunOnData_OutP, filenamex)

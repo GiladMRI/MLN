@@ -142,6 +142,11 @@ myParams.myDict['BankSize']=0
 myParams.myDict['InitForRFN']='None'
 myParams.myDict['InitForLFN']='None'
 
+myParams.myDict['BaseTSDataP']='None'
+myParams.myDict['BaseNUFTDataP']='None'
+myParams.myDict['RealDataFN']='None'
+myParams.myDict['DatasetMatFN']='None'
+
 ParamsD = {}
 with open(ParamFN) as f:
     for line in f:
@@ -154,6 +159,14 @@ with open(ParamFN) as f:
         ParamsD[key] = valx
         myParams.myDict[key]=ParamsD[key]
         print(key + " : " + str(val) + " " + type(valx).__name__)
+
+print('aaaa')
+print(HomeA)
+
+myParams.myDict['BaseTSDataP']=myParams.myDict['BaseTSDataP'].replace('$BASE$',HomeA)
+myParams.myDict['BaseNUFTDataP']=myParams.myDict['BaseNUFTDataP'].replace('$BASE$',HomeA)
+myParams.myDict['RealDataFN']=myParams.myDict['RealDataFN'].replace('$BASE$',HomeA)
+myParams.myDict['DatasetMatFN']=myParams.myDict['DatasetMatFN'].replace('$BASE$',HomeA)
 
 #pdb.set_trace()
 #FLAGS.nChosen=2045
@@ -210,7 +223,7 @@ SessionNameBase= myParams.myDict['SessionNameBase']
 SessionName= SessionNameBase + '_'+myParams.myDict['dataset'] + '__' + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
 # myParams.myDict['Full_dataset']=DatasetsBase+ParamsD['dataset']
-myParams.myDict['Full_dataset']=ParamsD['dataset']
+myParams.myDict['Full_dataset']=myParams.myDict['dataset']
 
 # FLAGS.checkpoint_dir=SessionName+'_checkpoint'
 # FLAGS.train_dir=SessionName+'_train'
@@ -259,9 +272,9 @@ def setup_tensorflow():
     print("setup_tensorflow")
     # Create session
     #config = tf.ConfigProto(log_device_placement=FLAGS.log_device_placement)
-    # config = tf.ConfigProto(log_device_placement=False, allow_soft_placement=True)
+    config = tf.ConfigProto(log_device_placement=False, allow_soft_placement=True)
     # config = tf.ConfigProto(log_device_placement=True, allow_soft_placement=False)
-    config = tf.ConfigProto(log_device_placement=False, allow_soft_placement=False)
+    # config = tf.ConfigProto(log_device_placement=False, allow_soft_placement=False)
     sess = tf.Session(config=config)
 
     # Initialize rng with a deterministic seed
@@ -355,7 +368,8 @@ def _train():
             # ifilename='/media/a/f38a5baa-d293-4a00-9f21-ea97f318f647/home/a/TF/srez/RealData/b_Ben14May_Sli5_r' +  f'{r:02}' + '.mat'
             # ifilename='/media/a/DATA/14May18/Ben/meas_MID109_gBP_VD11_U19_4min_FID17944/RealData/Sli11_r' +  f'{r:02}' + '.mat'
             ifilenamePrefix=myParams.myDict['LoadAndRunOnData_Prefix']
-            ifilename=ifilenamePrefix +  f'{r:02}' + '.mat'
+            # ifilename=ifilenamePrefix +  f'{r:02}' + '.mat'
+            ifilename=ifilenamePrefix + r + '.mat'
             RealData=scipy.io.loadmat(ifilename)
             RealData=RealData['Data']
             
@@ -391,7 +405,8 @@ def _train():
 
             OnRealData={}
             OnRealDataM=gene_RealOutput
-            filenamex = 'OnRealData' + f'{r:02}' + '.mat'
+            # filenamex = 'OnRealData' + f'{r:02}' + '.mat'
+            filenamex = 'OnRealData' + r + '.mat'
             
             LoadAndRunOnData_OutP=myParams.myDict['LoadAndRunOnData_OutP']
             filename = os.path.join(LoadAndRunOnData_OutP, filenamex)
