@@ -75,7 +75,7 @@ cp ./RealData/ParamsUsed.txt ./Params.txt
 source ~/tensorflow/bin/activate (or any other way to activate the tensorflow environment)
 <Tensorflow-python> srez_main1.py 
 ```
-Where <Tensorflow-python> is e.g. ~/tensorflow/bin/python.
+Where \<Tensorflow-python\> is e.g. ~/tensorflow/bin/python.
 
 # Calling from MATLAB
 `RunTFForMatlab.sh` should be edited with the correct folders, CUDA, etc.
