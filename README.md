@@ -25,14 +25,14 @@ The system is highly configurable from the human-readable `params.txt` . Most pa
 
 # Requirements
 
-The code is based on https://github.com/david-gpu/srez, so in case of errors it might be useful to verify srez is working. Installation should take no more than several minutes on a system configured with python 3 and tensorflow (1.10 preferably, some features may demand >1.8).
+The code is based on https://github.com/david-gpu/srez, so in case of errors it might be useful to verify srez is working. Installation should take no more than several minutes.
 
 You will need Python 3 with Tensorflow, numpy, scipy, h5py and [moviepy](http://zulko.github.io/moviepy/).
 See srez -`requirements.txt` for details.
 
-The "CUDA_VISIBLE_DEVICES" is set at the beginning of `srez_main1.py` . The code uses some forced 'with /gpu:0'. Remove soft allocation to verify the main computation is done entirely on the GPU.
+The "CUDA_VISIBLE_DEVICES" is set at the beginning of `srez_main1.py`. The code uses some forced 'with /gpu:0'. Remove soft allocation (on `srez_main1.py`) to verify the main computation is done entirely on the GPU.
 
-They system was developed on python 3.6.5, tensorflow 1.10.1, on a desktop machine with a GTX 1080 Ti GPU. MATLAB R2018a scripts are used for calling the system. Running pretrained nets should work well on CPU-only.
+They system was developed on python 3.6.5, tensorflow 1.10.1, on a desktop machine with a GTX 1080 Ti GPU. MATLAB R2018a scripts are used for calling the system. Running pretrained nets should work well on CPU-only. 32GB RAM is advised.
 
 # Dataset
 The dataset used for the real data and benchmark test is a collection of randomly chosen slices from the HCP. It can be downloaded from https://figshare.com/s/4e700474da52534efb30 . The data is augmented with random cropping, flipping and 90deg rotation, and a random 2D phase is added. The following parameters deternine the strength of the added phase: RandomPhaseLinearFac, RandomPhaseQuadraticFac, RandomPhaseScaleFac
@@ -40,7 +40,7 @@ The dataset used for the real data and benchmark test is a collection of randoml
 For the real data, the acquired signal, the trajectory, MIRT-based NUFFT coefficients and time-segments data are included here.
 For the benchmark test, the poisson-disc masks and the images used are provided, as well as the reconstructed images using various methods.
 
-## For training: download the dataset
+## For training: download the dataset (2.4GB)
 ```
 wget -O HCPData_256x256_int16.mat https://ndownloader.figshare.com/files/12420215?private_link=4e700474da52534efb30
 ```
@@ -68,6 +68,14 @@ If *ShowRealData*=1, the output every *summary_period* (minutes) will include a 
 Running a trained network on a series of .mat files, given in the format Path/Prefix_XX.mat, can be done my setting the following parameters in `params.txt`:
 LoadAndRunOnData=1,LoadAndRunOnData_checkpointP,LoadAndRunOnData_Prefix
 LoadAndRunOnData_OutP, HowManyToRun - see example in current `params_ex.txt`
+
+For running training on the example real data, from the base folder, after downloading the dataset, run:
+```
+cp ./RealData/ParamsUsed.txt ./Params.txt
+source ~/tensorflow/bin/activate (or any other way to activate the tensorflow environment)
+<Tensorflow-python> srez_main1.py 
+```
+Where <Tensorflow-python> is e.g. ~/tensorflow/bin/python.
 
 # Calling from MATLAB
 `RunTFForMatlab.sh` should be edited with the correct folders, CUDA, etc.
