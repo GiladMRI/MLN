@@ -40,6 +40,11 @@ The dataset used for the real data and benchmark test is a collection of randoml
 For the real data, the acquired signal, the trajectory, MIRT-based NUFFT coefficients and time-segments data are included here.
 For the benchmark test, the poisson-disc masks and the images used are provided, as well as the reconstructed images using various methods.
 
+## For training: download the dataset
+```
+wget -O HCPData_256x256_int16.mat https://ndownloader.figshare.com/files/12420215?private_link=4e700474da52534efb30
+```
+
 ## Downloading trained netork - real data
 The download may take a moment. ~560MB
 ```
