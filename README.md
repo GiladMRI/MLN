@@ -45,7 +45,7 @@ For the benchmark test, the poisson-disc masks and the images used are provided,
 wget -O HCPData_256x256_int16.mat https://ndownloader.figshare.com/files/12420215?private_link=4e700474da52534efb30
 ```
 
-## Downloading trained netork - real data
+## Downloading trained networks - real data
 The download may take a moment. ~560MB
 ```
 wget -O ./RealData/RegridTry3C2_7TS_S01_Sli06.tar.xz https://ndownloader.figshare.com/files/13198547?private_link=61f25dc380af32a12da3
