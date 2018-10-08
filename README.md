@@ -76,6 +76,7 @@ source ~/tensorflow/bin/activate (or any other way to activate the tensorflow en
 <Tensorflow-python> srez_main1.py 
 ```
 Where \<Tensorflow-python\> is e.g. ~/tensorflow/bin/python.
+The result should slowly accumulate in the folder RegridTry3C2_7TS_S01_Sli06__\<DATE\>
 
 # Calling from MATLAB
 `RunTFForMatlab.sh` should be edited with the correct folders, CUDA, etc.
