@@ -52,7 +52,7 @@ wget -O ./RealData/RegridTry3C2_7TS_S01_Sli06.tar.xz https://ndownloader.figshar
 tar xf RealData/RegridTry3C2_7TS_S01_Sli06.tar.xz -C RealData
 ```
 
-## Downloading trained netork - benchmark
+## Downloading trained networks - benchmark
 The download may take several minutes. ~ 4.3GB
 ```
 wget -O P2DF.tar.xz https://ndownloader.figshare.com/files/13198568?private_link=65c0e9f77f23c664aabe
@@ -69,6 +69,7 @@ Running a trained network on a series of .mat files, given in the format Path/Pr
 LoadAndRunOnData=1,LoadAndRunOnData_checkpointP,LoadAndRunOnData_Prefix
 LoadAndRunOnData_OutP, HowManyToRun - see example in current `params_ex.txt`
 
+## Training MLN on the example real data
 For running training on the example real data, from the base folder, after downloading the dataset, run:
 ```
 source ~/tensorflow/bin/activate (or any other way to activate the tensorflow environment)
@@ -92,4 +93,4 @@ The results will appear in RealData/OnRealData0{1,2}.mat. Note that real and ima
 ```
 sudo chmod +777 ./RunTFForMatlab.sh
 ```
-The `MLN_Benchmark_Run_Trained_Net.m`  have some folder definitions that need to be adjusted.
+The `MLN_Benchmark_Run_Trained_Net.m` (download benchmark trained networks first) reconstructs images using the trained MLN. The script has some folder definitions that need to be adjusted.
