@@ -16,12 +16,11 @@ Vs. common methods on our benchmark data:
 
 ![Vs. common methods on our benchmark data:](Benchmark.png)
 
+## Comprehensive results on real data
+Summary of proposed and reference reconstruction methods on real data for all 4 subjects can be found summarized at https://figshare.com/s/8cd03a609d6c10a4fdcc and detailed for every slice at https://figshare.com/s/8cd03a609d6c10a4fdcc .
+
 ## TF-NUFFT
 NUFFT with B0 field inhomogeneities correction by the time-segments method is implemented in tensorflow to run on the GPU.
-
-# Parameters
-
-The system is highly configurable from the human-readable `params.txt` . Most parameters are rather self-explanatory; some additional information can be found here: https://docs.google.com/document/d/18lZOREQs4aX6HWqjV1Dn5tCwnAgcu9XmiUsXeqp5uRQ/edit?usp=sharing
 
 # Requirements
 
@@ -33,6 +32,10 @@ See srez -`requirements.txt` for details.
 The "CUDA_VISIBLE_DEVICES" is set at the beginning of `srez_main1.py`. The code uses some forced 'with /gpu:0'. Remove soft allocation (on `srez_main1.py`) to verify the main computation is done entirely on the GPU.
 
 They system was developed on python 3.6.5, tensorflow 1.10.1, on a desktop machine with a GTX 1080 Ti GPU. MATLAB R2018a scripts are used for calling the system. Running pretrained nets should work well on CPU-only. 32GB RAM is advised.
+
+# Parameters
+
+The system is highly configurable from the human-readable `params.txt` . Most parameters are rather self-explanatory; some additional information can be found here: https://docs.google.com/document/d/18lZOREQs4aX6HWqjV1Dn5tCwnAgcu9XmiUsXeqp5uRQ/edit?usp=sharing
 
 # Dataset
 The dataset used for the real data and benchmark test is a collection of randomly chosen slices from the HCP. It can be downloaded from https://figshare.com/s/4e700474da52534efb30 . The data is augmented with random cropping, flipping and 90deg rotation, and a random 2D phase is added. The following parameters deternine the strength of the added phase: RandomPhaseLinearFac, RandomPhaseQuadraticFac, RandomPhaseScaleFac
