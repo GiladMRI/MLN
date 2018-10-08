@@ -88,5 +88,8 @@ cp ./RealData/ParamsUsedForRun.txt ./Params.txt
 The results will appear in RealData/OnRealData0{1,2}.mat. Note that real and imaginary channels are separated.
 
 # Calling from MATLAB
-`RunTFForMatlab.sh` should be edited with the correct folders, CUDA, etc.
-similarly, the .m scripts have some folder definitions that need to be adjusted. 
+`RunTFForMatlab.sh` should be edited with the correct folders, CUDA, etc. Execution should be enabled:
+```
+sudo chmod +777 ./RunTFForMatlab.sh
+```
+The `MLN_Benchmark_Run_Trained_Net.m`  have some folder definitions that need to be adjusted.
