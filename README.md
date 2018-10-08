@@ -71,12 +71,21 @@ LoadAndRunOnData_OutP, HowManyToRun - see example in current `params_ex.txt`
 
 For running training on the example real data, from the base folder, after downloading the dataset, run:
 ```
-cp ./RealData/ParamsUsed.txt ./Params.txt
 source ~/tensorflow/bin/activate (or any other way to activate the tensorflow environment)
+cp ./RealData/ParamsUsed.txt ./Params.txt
 <Tensorflow-python> srez_main1.py 
 ```
 Where \<Tensorflow-python\> is e.g. ~/tensorflow/bin/python.
 The result should slowly accumulate in the folder RegridTry3C2_7TS_S01_Sli06__\<DATE\>
+
+## Running the trained network on the example real data
+Download the trained network before.
+```
+source ~/tensorflow/bin/activate (or any other way to activate the tensorflow environment)
+cp ./RealData/ParamsUsedForRun.txt ./Params.txt
+<Tensorflow-python> srez_main1.py 
+```
+The results will appear in RealData/OnRealData0{1,2}.mat. Note that real and imaginary channels are separated.
 
 # Calling from MATLAB
 `RunTFForMatlab.sh` should be edited with the correct folders, CUDA, etc.
