@@ -38,10 +38,11 @@ UseSharedWightesInRelaxedFT 1
 WPhaseOnly 0
 RealDataFN $BASE$/RealData/RealDataForNN.mat
 RealDatancc 13
-LoadAndRunOnData 0
-LoadAndRunOnData_checkpointP /media/a/f38a5baa-d293-4a00-9f21-ea97f318f647/home/a/TF/srez/RegridTry3C2_7TS_RL_S3__2018-07-16_14-50-15_checkpoint
-LoadAndRunOnData_Prefix /media/a/DATA/11Jul18/RL/meas_MID149_gBP_VD11_U19_G35S155_FID23846/RealData/Sli3_r
-LoadAndRunOnData_OutP /media/a/DATA/11Jul18/RL/meas_MID149_gBP_VD11_U19_G35S155_FID23846/RealDataOut/Sli03/
+LoadAndRunOnData 1
+LoadAndRunOnData_checkpointP $BASE$/RealData/RegridTry3C2_7TS_S01_Sli06_checkpoint
+LoadAndRunOnData_Prefix $BASE$/RealData/Sli6_r
+LoadAndRunOnData_OutP $BASE$/RealData/
+HowManyToRun 3
 BaseTSDataP $BASE$/RealData/
 BaseNUFTDataP $BASE$/RealData/
 DatasetMatFN $BASE$/HCPData_256x256_int16.mat

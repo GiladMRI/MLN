@@ -46,56 +46,32 @@ FLAGS = tf.app.flags.FLAGS
 
 # Configuration (alphabetically)
 tf.app.flags.DEFINE_integer('batch_size', -7,"Number of samples per batch.")
-
 tf.app.flags.DEFINE_string('checkpoint_dir', 'checkpoint', "Output folder where checkpoints are dumped.")
-
 tf.app.flags.DEFINE_integer('checkpoint_period', 10000,   "Number of batches in between checkpoints")
-
 tf.app.flags.DEFINE_string('dataset', 'dataset1', "Path to the dataset directory.")
-
-tf.app.flags.DEFINE_float('epsilon', 1e-8,
-                          "Fuzz term to avoid numerical instability")
-
+tf.app.flags.DEFINE_float('epsilon', 1e-8,"Fuzz term to avoid numerical instability")
 tf.app.flags.DEFINE_string('run', 'train',"Which operation to run. [demo|train]")
-
 tf.app.flags.DEFINE_float('gene_l1_factor', 1  , "Multiplier for generator L1 loss term")
 #tf.app.flags.DEFINE_float('gene_l1_factor', .90, "Multiplier for generator L1 loss term")
-
-tf.app.flags.DEFINE_float('learning_beta1', 0.9, #0.5,
-                          "Beta1 parameter used for AdamOptimizer")
-
+tf.app.flags.DEFINE_float('learning_beta1', 0.9, "Beta1 parameter used for AdamOptimizer") #0.5,
 # tf.app.flags.DEFINE_float('learning_rate_start', 0.0002,"Starting learning rate used for AdamOptimizer")
 tf.app.flags.DEFINE_float('learning_rate_start', 0.002,"Starting learning rate used for AdamOptimizer")
 #tf.app.flags.DEFINE_float('learning_rate_start', 0.00001, #0.00020,"Starting learning rate used for AdamOptimizer")
-
-tf.app.flags.DEFINE_integer('learning_rate_half_life', 5000,
-                            "Number of batches until learning rate is halved")
-
-tf.app.flags.DEFINE_bool('log_device_placement', False,
-                         "Log the device where variables are placed.")
-
-tf.app.flags.DEFINE_integer('sample_size', 64,
-                            "Image sample size in pixels. Range [64,128]")
-
+tf.app.flags.DEFINE_integer('learning_rate_half_life', 5000,  "Number of batches until learning rate is halved")
+tf.app.flags.DEFINE_bool('log_device_placement', False,"Log the device where variables are placed.")
+tf.app.flags.DEFINE_integer('sample_size', 64,"Image sample size in pixels. Range [64,128]")
 tf.app.flags.DEFINE_integer('summary_period', 200, "Number of batches between summary data dumps")
-
-tf.app.flags.DEFINE_integer('random_seed', 0,
-                            "Seed used to initialize rng.")
-
+tf.app.flags.DEFINE_integer('random_seed', 0,"Seed used to initialize rng.")
 #tf.app.flags.DEFINE_integer('test_vectors', 16,"""Number of features to use for testing""")
-                            
 tf.app.flags.DEFINE_string('train_dir', 'train',"Output folder where training logs are dumped.")
-
 #tf.app.flags.DEFINE_integer('train_time', 20,"Time in minutes to train the model")
 tf.app.flags.DEFINE_integer('train_time', 180,"Time in minutes to train the model")
-
 tf.app.flags.DEFINE_integer('DataH', 64*64,"DataH")
 tf.app.flags.DEFINE_integer('DataW', 64*64,"DataW")
 tf.app.flags.DEFINE_integer('channelsIn', 64*64,"channelsIn")
 tf.app.flags.DEFINE_integer('LabelsH', 64*64,"LabelsH")
 tf.app.flags.DEFINE_integer('LabelsW', 64*64,"LabelsW")
 tf.app.flags.DEFINE_integer('channelsOut', 64*64,"channelsOut")
-
 tf.app.flags.DEFINE_string('SessionName', 'SessionName', "Which operation to run. [demo|train]")
 
 def getParam(s):
@@ -167,6 +143,9 @@ myParams.myDict['BaseTSDataP']=myParams.myDict['BaseTSDataP'].replace('$BASE$',H
 myParams.myDict['BaseNUFTDataP']=myParams.myDict['BaseNUFTDataP'].replace('$BASE$',HomeA)
 myParams.myDict['RealDataFN']=myParams.myDict['RealDataFN'].replace('$BASE$',HomeA)
 myParams.myDict['DatasetMatFN']=myParams.myDict['DatasetMatFN'].replace('$BASE$',HomeA)
+myParams.myDict['LoadAndRunOnData_checkpointP']=myParams.myDict['LoadAndRunOnData_checkpointP'].replace('$BASE$',HomeA)
+myParams.myDict['LoadAndRunOnData_Prefix']=myParams.myDict['LoadAndRunOnData_Prefix'].replace('$BASE$',HomeA)
+myParams.myDict['LoadAndRunOnData_OutP']=myParams.myDict['LoadAndRunOnData_OutP'].replace('$BASE$',HomeA)
 
 #pdb.set_trace()
 #FLAGS.nChosen=2045
@@ -369,7 +348,8 @@ def _train():
             # ifilename='/media/a/DATA/14May18/Ben/meas_MID109_gBP_VD11_U19_4min_FID17944/RealData/Sli11_r' +  f'{r:02}' + '.mat'
             ifilenamePrefix=myParams.myDict['LoadAndRunOnData_Prefix']
             # ifilename=ifilenamePrefix +  f'{r:02}' + '.mat'
-            ifilename=ifilenamePrefix + r + '.mat'
+            ifilename=ifilenamePrefix +  ('%02d' % r) + '.mat'
+            # ifilename=ifilenamePrefix + r + '.mat'
             RealData=scipy.io.loadmat(ifilename)
             RealData=RealData['Data']
             
@@ -406,7 +386,8 @@ def _train():
             OnRealData={}
             OnRealDataM=gene_RealOutput
             # filenamex = 'OnRealData' + f'{r:02}' + '.mat'
-            filenamex = 'OnRealData' + r + '.mat'
+            filenamex = 'OnRealData' + ('%02d' % r) + '.mat'
+            # filenamex = 'OnRealData' + r + '.mat'
             
             LoadAndRunOnData_OutP=myParams.myDict['LoadAndRunOnData_OutP']
             filename = os.path.join(LoadAndRunOnData_OutP, filenamex)
