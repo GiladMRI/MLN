@@ -91,6 +91,10 @@ cp ./RealData/ParamsUsedForRun.txt ./Params.txt
 ```
 The results will appear in RealData/OnRealData0{1,2}.mat. Note that real and imaginary channels are separated.
 
+Output images are produced during the run. In the output images, each row contain the reconstruction on a different training image, in the order real, imaginary, magnitude, phase. Image used for training on the right, reconstructd image on the left.
+
+Expected output can be seen in the image in the RealData folder: the reonstructed image from real data is shown on the first row (mismatching with non-existing training image).
+
 # Calling from MATLAB
 `RunTFForMatlab.sh` should be edited with the correct folders, CUDA, etc. Execution should be enabled:
 ```
