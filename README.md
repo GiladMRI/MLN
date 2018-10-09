@@ -17,7 +17,7 @@ Vs. common methods on our benchmark data:
 ![Vs. common methods on our benchmark data:](Benchmark.png)
 
 ## Comprehensive results on real data
-Summary of proposed and reference reconstruction methods on real data for all 4 subjects can be found summarized at https://figshare.com/s/8cd03a609d6c10a4fdcc and detailed for every slice at https://figshare.com/s/8cd03a609d6c10a4fdcc .
+Summary of proposed and reference reconstruction methods on real data for all 4 subjects can be found summarized at https://doi.org/10.6084/m9.figshare.7007777 and detailed for every slice at https://doi.org/10.6084/m9.figshare.7007774 .
 
 ## TF-NUFFT
 NUFFT with B0 field inhomogeneities correction by the time-segments method is implemented in tensorflow to run on the GPU.
